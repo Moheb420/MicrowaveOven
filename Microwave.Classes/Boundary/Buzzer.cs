@@ -16,10 +16,17 @@ namespace Microwave.Classes.Boundary
 
         public void playBuzz(int duration, int amount)
         {
+            if (amount > 3 || amount < 0)
+            {
+                throw new ArgumentException($"Not valid value");
+            }
             for (int i = 0; i < amount; i++)
             {
                 output.OutputLine($"Microwave buzzes for {duration}");
             }
+            
+           
         }
+
     }
 }

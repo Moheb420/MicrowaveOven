@@ -29,5 +29,13 @@ namespace Microwave.Test.Unit
             uut.playBuzz(dur,amount);
             output.Received(amount).OutputLine($"Microwave buzzes for {dur}");
         }
+
+        [TestCase(1000, -1)]
+        [TestCase(1000, 4)]
+        public void playBuzzerThreeTimesWithException(int dur, int amount)
+        {
+            //uut.playBuzz(dur, amount);
+            Assert.That(() => uut.playBuzz(dur, amount), Throws.TypeOf<ArgumentException>());
+        }
     }
 }
