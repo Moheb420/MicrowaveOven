@@ -78,6 +78,34 @@ namespace Microwave.Test.Integration
         }
 
         [Test]
+        public void CookController_PowerTube_TurnOn_800W()
+        {
+            powerTube.changePowerTubeValue(800);
+            powerButton.Press();
+            timeButton.Press();
+            startCancelButton.Press();
+
+            // Should now be started with 500W
+            output.Received().OutputLine(Arg.Is<string>(str => str.Contains("800") && str.Contains("PowerTube works")));
+        }
+
+        [Test]
+        public void CookController_PowerTube_TurnOn_500W()
+        {
+            for (int p = 50; p <= 500; p += 50)
+            {
+                powerButton.Press();
+            }
+            timeButton.Press();
+            startCancelButton.Press();
+
+            // Should now be started with 500W
+            output.Received().OutputLine(Arg.Is<string>(str => str.Contains("500") && str.Contains("PowerTube works")));
+        }
+
+
+
+        [Test]
         public void CookController_PowerTube_TurnOn_700W()
         {
             for (int p = 50; p <= 700; p += 50)

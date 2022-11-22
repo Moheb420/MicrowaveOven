@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using Microwave.Classes.Interfaces;
 
 namespace Microwave.Classes.Boundary
@@ -6,6 +7,7 @@ namespace Microwave.Classes.Boundary
     public class PowerTube : IPowerTube
     {
         private IOutput myOutput;
+        public int DefaultValue = 700;
 
         private bool IsOn = false;
 
@@ -14,11 +16,26 @@ namespace Microwave.Classes.Boundary
             myOutput = output;
         }
 
+        public PowerTube(IOutput output, int NewValue)
+        {
+            myOutput = output;
+            changePowerTubeValue(NewValue);
+        }
+
+        public void changePowerTubeValue(int  newValue)
+        {
+            if(newValue < 500 || newValue > 1000)
+                throw new ArgumentOutOfRangeException($"Please , Insert value between 500 and 1000");
+
+            this.DefaultValue = newValue;
+
+        }
+
         public void TurnOn(int power)
         {
-            if (power < 1 || 700 < power)
+            if (power < 1 || DefaultValue < power)
             {
-                throw new ArgumentOutOfRangeException("power", power, "Must be between 1 and 700 (incl.)");
+                throw new ArgumentOutOfRangeException("power", power, $"Must be between 1 and {DefaultValue} (incl.)");
             }
 
             if (IsOn)
