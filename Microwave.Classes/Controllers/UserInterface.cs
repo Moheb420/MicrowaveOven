@@ -70,6 +70,10 @@ namespace Microwave.Classes.Controllers
         {
             switch (myState)
             {
+                case States.COOKING:
+                    myCooker.IncreaseTimer(time);
+                    myDisplay.ShowTime(time,0);
+                    break;
                 case States.SETPOWER:
                     myDisplay.ShowTime(time, 0);
                     myState = States.SETTIME;
