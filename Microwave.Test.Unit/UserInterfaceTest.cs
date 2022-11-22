@@ -33,12 +33,12 @@ namespace Microwave.Test.Unit
             display = Substitute.For<IDisplay>();
             cooker = Substitute.For<ICookController>();
 
-            uut = new UserInterface(
-                powerButton, timeButton, startCancelButton,
-                door,
-                display,
-                light,
-                cooker);
+            //uut = new UserInterface(
+            //    powerButton, timeButton, startCancelButton,
+            //    door,
+            //    display,
+            //    light,
+            //    cooker);
         }
 
         [Test]
