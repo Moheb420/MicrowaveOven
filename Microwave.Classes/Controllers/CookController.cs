@@ -51,6 +51,10 @@ namespace Microwave.Classes.Controllers
             myTimer.Stop();
         }
 
+        public void IncreaseTimer(int time)
+         {
+           myTimer.TimeRemaining += time;
+        }
         public void OnTimerExpired(object sender, EventArgs e)
         {
             if (isCooking)
