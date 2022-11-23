@@ -8,7 +8,7 @@ namespace Microwave.Classes.Interfaces
 {
     public interface ICookController
     {
-        public void IncreaseTimer(int time);
+        public void IncreaseTimer_(int time);
         void StartCooking(int power, int time);
         void Stop();
     }
