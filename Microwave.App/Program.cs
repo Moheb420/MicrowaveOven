@@ -18,6 +18,7 @@ namespace Microwave.App
 
             Display display = new Display(output);
 
+
             PowerTube powerTube = new PowerTube(output);
 
             Buzzer buzzer = new Buzzer(output);
