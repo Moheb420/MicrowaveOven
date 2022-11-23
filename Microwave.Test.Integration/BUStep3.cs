@@ -19,6 +19,7 @@ namespace Microwave.Test.Integration
         private UserInterface ui;
         private Light light;
 
+        private Buzzer buzzer;
         private Button powerButton;
         private Button timeButton;
         private Button startCancelButton;
@@ -40,7 +41,7 @@ namespace Microwave.Test.Integration
             timer = new Timer();
             display = new Display(output);
             powerTube = new PowerTube(output);
-
+            buzzer = new Buzzer(output);
             light = new Light(output);
 
             cooker = new CookController(timer, display, powerTube);
