@@ -21,7 +21,7 @@ namespace Microwave.App
             //PowerTube powerTube = new PowerTube(output);
 
 
-            output.OutputLine($"Change the power of powertube between 500-1000");
+            output.OutputLine($"Change the power of the powertube between 500-1000");
             int value = Convert.ToInt32(Console.ReadLine());
             PowerTube powerTube2 = new PowerTube(output,value);
 
