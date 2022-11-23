@@ -23,6 +23,7 @@ namespace Microwave.App
             Light light = new Light(output);
 
             Microwave.Classes.Boundary.Timer timer = new Timer();
+            powerTube.changePowerTubeValue(800);
 
             CookController cooker = new CookController(timer, display, powerTube);
 
