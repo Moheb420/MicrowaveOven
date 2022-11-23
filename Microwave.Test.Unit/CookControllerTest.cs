@@ -39,7 +39,7 @@ namespace Microwave.Test.Unit
         public void Cooking_Controller_IncreaseTimer()
         {
             uut.StartCooking(50, 60);
-            uut.IncreaseTimer(60);
+            uut.IncreaseTimer_(60);
             timer.Received().TimeRemaining += 60;
         }
 
