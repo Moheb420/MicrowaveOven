@@ -43,6 +43,8 @@ namespace Microwave.App
             powerButton.Press();
 
             timeButton.Press();
+            // Time button pressed two times to prolong the amount of time
+            timeButton.Press();
 
             startCancelButton.Press();
 

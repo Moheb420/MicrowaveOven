@@ -51,7 +51,7 @@ namespace Microwave.Classes.Controllers
             myTimer.Stop();
         }
 
-        public void IncreaseTimer(int time)
+        public void IncreaseTimer_(int time)
          {
            myTimer.TimeRemaining += time;
         }
