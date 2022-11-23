@@ -3,6 +3,9 @@ using Microwave.Classes.Interfaces;
 using NSubstitute;
 using NSubstitute.Core.Arguments;
 using NUnit.Framework;
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Assert = NUnit.Framework.Assert;
 
 namespace Microwave.Test.Unit
 {
@@ -61,5 +64,25 @@ namespace Microwave.Test.Unit
             uut.TurnOn(50);
             Assert.Throws<System.ApplicationException>(() => uut.TurnOn(60));
         }
+
+        [TestCase(500)]
+        [TestCase(501)]
+        [TestCase(1000)]
+        [TestCase(999)]
+        public void Change_Power_of_PowerTube_With_Different_Values(int value)
+        {
+            uut.changePowerTubeValue(value);
+            Assert.AreEqual(uut.DefaultValue,value);
+        }
+
+
+        [TestCase(499)]
+        [TestCase(1001)]
+        public void Change_Power_of_PowerTube_With_Exception(int value)
+        {
+            Assert.Throws<System.ArgumentOutOfRangeException>(() => uut.changePowerTubeValue(value));
+        }
+
+
     }
 }
