@@ -16,11 +16,6 @@ namespace Microwave.Classes.Boundary
             myOutput = output;
         }
 
-        public PowerTube(IOutput output, int NewValue)
-        {
-            myOutput = output;
-            changePowerTubeValue(NewValue);
-        }
 
         public void changePowerTubeValue(int  newValue)
         {

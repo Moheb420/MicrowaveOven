@@ -65,17 +65,19 @@ namespace Microwave.Test.Unit
             Assert.Throws<System.ApplicationException>(() => uut.TurnOn(60));
         }
 
-        [TestCase(500)]
-        [TestCase(501)]
-        [TestCase(1000)]
-        [TestCase(999)]
-        public void Change_Power_of_PowerTube_With_Different_Values(int value)
+        [TestCase(500,500)]
+        [TestCase(999,900)]
+        [TestCase(999,999)]
+        [TestCase(1000,1000)]
+        public void Change_Power_of_PowerTube_With_Different_Values(int value, int power)
         {
             uut.changePowerTubeValue(value);
-            Assert.AreEqual(uut.DefaultValue,value);
+            uut.TurnOn(power);
+            output.Received().OutputLine(Arg.Is<string>(str=>str.Contains($"{power}")));
         }
 
 
+        [TestCase(0)]
         [TestCase(499)]
         [TestCase(1001)]
         public void Change_Power_of_PowerTube_With_Exception(int value)
