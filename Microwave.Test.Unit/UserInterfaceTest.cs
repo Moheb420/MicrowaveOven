@@ -1,4 +1,5 @@
 ﻿using System;
+using Microwave.Classes.Boundary;
 using Microwave.Classes.Controllers;
 using Microwave.Classes.Interfaces;
 using NSubstitute;
@@ -16,7 +17,7 @@ namespace Microwave.Test.Unit
         private IButton startCancelButton;
 
         private IDoor door;
-
+        private IBuzzer buzzer;
         private IDisplay display;
         private ILight light;
 
@@ -32,13 +33,14 @@ namespace Microwave.Test.Unit
             light = Substitute.For<ILight>();
             display = Substitute.For<IDisplay>();
             cooker = Substitute.For<ICookController>();
-
-            //uut = new UserInterface(
-            //    powerButton, timeButton, startCancelButton,
-            //    door,
-            //    display,
-            //    light,
-            //    cooker);
+            buzzer = Substitute.For<IBuzzer>();
+            uut = new UserInterface(
+                powerButton, timeButton, startCancelButton,
+                door,
+                buzzer,
+                display,
+                light,
+                cooker);
         }
 
         [Test]
