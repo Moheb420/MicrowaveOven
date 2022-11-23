@@ -36,6 +36,14 @@ namespace Microwave.Test.Unit
         }
 
         [Test]
+        public void Cooking_Controller_IncreaseTimer()
+        {
+            uut.StartCooking(50, 60);
+            uut.IncreaseTimer_(60);
+            timer.Received().TimeRemaining += 60;
+        }
+
+        [Test]
         public void StartCooking_ValidParameters_PowerTubeStarted()
         {
             uut.StartCooking(50, 60);
