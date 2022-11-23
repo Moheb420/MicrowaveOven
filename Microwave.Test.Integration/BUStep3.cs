@@ -18,8 +18,7 @@ namespace Microwave.Test.Integration
 
         private UserInterface ui;
         private Light light;
-
-        private Buzzer buzzer;
+        
         private Button powerButton;
         private Button timeButton;
         private Button startCancelButton;
