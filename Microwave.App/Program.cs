@@ -18,20 +18,16 @@ namespace Microwave.App
 
             Display display = new Display(output);
 
-            //PowerTube powerTube = new PowerTube(output);
-
-
-            output.OutputLine($"Change the power of the powertube between 500-1000");
-            int value = Convert.ToInt32(Console.ReadLine());
-            PowerTube powerTube2 = new PowerTube(output,value);
+            PowerTube powerTube = new PowerTube(output);
 
             Buzzer buzzer = new Buzzer(output);
 
             Light light = new Light(output);
 
             Microwave.Classes.Boundary.Timer timer = new Timer();
+            powerTube.changePowerTubeValue(800);
 
-            CookController cooker = new CookController(timer, display, powerTube2);
+            CookController cooker = new CookController(timer, display, powerTube);
 
             UserInterface ui = new UserInterface(powerButton, timeButton, startCancelButton, door, buzzer, display, light, cooker);
 
